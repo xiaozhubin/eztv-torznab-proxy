@@ -7,7 +7,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # 复制代码
-COPY app.py .
+COPY app.py /app/app.py
 
 # 创建持久化数据目录
 VOLUME /app/data
