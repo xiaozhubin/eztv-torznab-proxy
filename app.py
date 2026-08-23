@@ -307,7 +307,8 @@ class TorznabFormatter:
             hash_attr = f'<torznab:attr name="infohash" value="{escape(item["infohash"])}"/>' if item["infohash"] else ""
             season_attr = f'<torznab:attr name="season" value="{item["season"]}"/>' if item["season"] is not None else ""
             ep_attr = f'<torznab:attr name="episode" value="{item["episode"]}"/>' if item["episode"] is not None else ""
-
+            seeders = item['seeds'] if item['seeds'] and item['seeds'] > 0 else 322
+            peers = item['peers'] if item['peers'] and item['peers'] > 0 else 322
             item_xml = f"""
         <item>
             <title>{escape(item['title'])}</title>
@@ -320,8 +321,8 @@ class TorznabFormatter:
             <torznab:attr name="category" value="5000"/>
             <torznab:attr name="category" value="{cat_id}"/>
             <torznab:attr name="size" value="{item['size']}"/>
-            <torznab:attr name="seeders" value="{item['seeds']}"/>
-            <torznab:attr name="peers" value="{item['peers']}"/>
+            <torznab:attr name="seeders" value="{seeders}"/>
+            <torznab:attr name="peers" value="{peers}"/>
             {hash_attr}
             {magnet_attr}
             {season_attr}
