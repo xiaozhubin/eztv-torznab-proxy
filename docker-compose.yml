@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  eztv-torznab:
+    image: ghcr.io/xiaozhubin/eztv-torznab-proxy:latest
+    container_name: eztv-torznab
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - EZTV_RSS_URL=https://myrss.org/eztv
+      - FETCH_INTERVAL_MINUTES=30
+      - DB_PATH=/app/data/eztv_torrents.db
+    volumes:
+      - ./data:/app/data
