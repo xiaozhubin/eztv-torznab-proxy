@@ -1,0 +1,9 @@
+# Python 编译文件
+__pycache__/
+*.py[cod]
+
+# 本地环境变量和数据库
+.venv
+*.db
+data/
+.vscode/
