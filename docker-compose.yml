@@ -5,6 +5,7 @@ services:
     image: ghcr.io/xiaozhubin/eztv-torznab-proxy:latest
     container_name: eztv-torznab
     restart: unless-stopped
+    user: "1000:1000" #修改为当前用户及用户组
     ports:
       - "8000:8000"
     environment:
